@@ -19,14 +19,14 @@ function Hero() {
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="#projects"
-              className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white"
+              className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition hover:bg-gray-800"
             >
               View My Work
             </a>
 
             <a
               href="#contact"
-              className="rounded-full border border-gray-300 px-6 py-3 text-sm font-medium"
+              className="rounded-full border border-gray-300 px-6 py-3 text-sm font-medium transition hover:bg-gray-100"
             >
               Contact Me
             </a>
