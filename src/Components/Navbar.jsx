@@ -14,6 +14,10 @@ function Navbar() {
           Projects
         </a>
 
+        <a href="#skills" className="transition hover:text-gray-500">
+          Skills
+        </a>
+
         <a href="#contact" className="transition hover:text-gray-500">
           Contact
         </a>

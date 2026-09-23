@@ -4,19 +4,18 @@ import About from "./Components/About";
 import Skills from "./Components/Skills";
 import Services from "./Components/Services";
 import Projects from "./Components/Projects";
+import Contact from "./Components/Contact";
 
 function App() {
   return (
     <>
       <Navbar />
-
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Services />
-        <Projects />
-      </main>
+      <Hero />
+      <About />
+      <Skills />
+      <Services />
+      <Projects />
+      <Contact/>
     </>
   );
 }

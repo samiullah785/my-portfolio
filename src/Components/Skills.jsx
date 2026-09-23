@@ -2,7 +2,7 @@ import SectionHeading from "./SectionHeading";
 
 function Skills() {
   return (
-    <section className="px-6 py-24">
+    <section id = "skills" className="px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Skills"
