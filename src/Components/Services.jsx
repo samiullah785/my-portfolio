@@ -1,51 +1,41 @@
 import SectionHeading from "./SectionHeading";
+import ServiceCard from "./ServiceCard";
 
-function ServiceCard({ number, title, description }) {
-  return (
-    <div className="rounded-3xl border border-gray-200 p-8 transition hover:-translate-y-1">
-      <p className="text-sm font-medium text-gray-400">
-        {number}
-      </p>
-
-      <h3 className="mt-6 text-2xl font-semibold">
-        {title}
-      </h3>
-
-      <p className="mt-4 leading-7 text-gray-600">
-        {description}
-      </p>
-    </div>
-  );
-}
+const services = [
+  {
+    id: 1,
+    title: "Web Development",
+    description: "I build modern and responsive websites.",
+  },
+  {
+    id: 2,
+    title: "UI Design",
+    description: "I create clean and user-friendly interfaces.",
+  },
+  {
+    id: 3,
+    title: "API Development",
+    description: "I build scalable backend APIs.",
+  },
+];
 
 function Services() {
   return (
-    <section className="px-6 py-24">
+    <section className="px-6 py-20">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="Services"
-          title="What I can build."
-          description="The types of digital solutions this portfolio will eventually showcase."
+          title="Services"
+          description="Services I can provide."
         />
 
         <div className="grid gap-6 md:grid-cols-3">
-          <ServiceCard
-            number="01"
-            title="Web Development"
-            description="Modern responsive websites and web applications built with React and modern frontend technologies."
-          />
-
-          <ServiceCard
-            number="02"
-            title="AI Automation"
-            description="Practical AI-powered workflows designed to reduce repetitive work and improve business processes."
-          />
-
-          <ServiceCard
-            number="03"
-            title="Web Solutions"
-            description="Custom digital experiences focused on usability, performance, and real business needs."
-          />
+          {services.map((service) => (
+            <ServiceCard
+              key={service.id}
+              title={service.title}
+              description={service.description}
+            />
+          ))}
         </div>
       </div>
     </section>
