@@ -1,3 +1,5 @@
+import ContactCard from "./ContactCard";
+
 function Contact() {
   const contactInfo = [
     {
@@ -15,11 +17,17 @@ function Contact() {
       label: "Location",
       value: "Karachi, Pakistan",
     },
+    {
+    id: 4,
+    label: "Availability",
+    value: "Available for freelance work",
+  },
   ];
 
   return (
-    <section id ="contact" className="px-6 py-20">
+    <section id="contact" className="px-6 py-20">
       <div className="mx-auto max-w-6xl">
+
         {/* Section Heading */}
         <div className="mb-12">
           <h2 className="text-4xl font-bold">
@@ -32,6 +40,7 @@ function Contact() {
         </div>
 
         <div className="grid gap-10 md:grid-cols-2">
+
           {/* Contact Information */}
           <div>
             <h3 className="mb-6 text-2xl font-semibold">
@@ -40,18 +49,11 @@ function Contact() {
 
             <div className="space-y-4">
               {contactInfo.map((contact) => (
-                <div
+                <ContactCard
                   key={contact.id}
-                  className="rounded-xl border border-gray-200 p-5 shadow-sm"
-                >
-                  <p className="text-sm font-medium text-gray-500">
-                    {contact.label}
-                  </p>
-
-                  <p className="mt-1 text-lg font-semibold">
-                    {contact.value}
-                  </p>
-                </div>
+                  label={contact.label}
+                  value={contact.value}
+                />
               ))}
             </div>
           </div>
@@ -63,6 +65,7 @@ function Contact() {
             </h3>
 
             <form className="space-y-5">
+
               <div>
                 <label
                   htmlFor="name"
@@ -117,8 +120,10 @@ function Contact() {
               >
                 Send Message
               </button>
+
             </form>
           </div>
+
         </div>
       </div>
     </section>
