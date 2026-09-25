@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ContactCard from "./ContactCard";
 
 function Contact() {
@@ -18,11 +19,43 @@ function Contact() {
       value: "Karachi, Pakistan",
     },
     {
-    id: 4,
-    label: "Availability",
-    value: "Available for freelance work",
-  },
+      id: 4,
+      label: "Availability",
+      value: "Available for freelance work",
+    },
   ];
+
+  // Form State
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  // Validation State
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  // Form Submit
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    setError("");
+    setSuccess("");
+
+    if (!name || !email || !message) {
+      setError("Please fill in all fields.");
+      return;
+    }
+
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Message:", message);
+
+    setSuccess("Your message has been sent successfully!");
+
+    setName("");
+    setEmail("");
+    setMessage("");
+  }
 
   return (
     <section id="contact" className="px-6 py-20">
@@ -64,8 +97,26 @@ function Contact() {
               Send Me a Message
             </h3>
 
-            <form className="space-y-5">
+            {/* Error Message */}
+            {error && (
+              <p className="mb-4 rounded-lg bg-red-100 px-4 py-3 text-red-700">
+                {error}
+              </p>
+            )}
 
+            {/* Success Message */}
+            {success && (
+              <p className="mb-4 rounded-lg bg-green-100 px-4 py-3 text-green-700">
+                {success}
+              </p>
+            )}
+
+            <form
+              className="space-y-5"
+              onSubmit={handleSubmit}
+            >
+
+              {/* Name */}
               <div>
                 <label
                   htmlFor="name"
@@ -78,10 +129,13 @@ function Contact() {
                   id="name"
                   type="text"
                   placeholder="Your name"
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-black"
                 />
               </div>
 
+              {/* Email */}
               <div>
                 <label
                   htmlFor="email"
@@ -94,10 +148,13 @@ function Contact() {
                   id="email"
                   type="email"
                   placeholder="your@email.com"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-black"
                 />
               </div>
 
+              {/* Message */}
               <div>
                 <label
                   htmlFor="message"
@@ -110,10 +167,13 @@ function Contact() {
                   id="message"
                   rows="5"
                   placeholder="Write your message..."
+                  value={message}
+                  onChange={(event) => setMessage(event.target.value)}
                   className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-black"
                 ></textarea>
               </div>
 
+              {/* Submit Button */}
               <button
                 type="submit"
                 className="rounded-lg bg-black px-6 py-3 font-medium text-white transition hover:bg-gray-800"
